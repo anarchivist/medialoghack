@@ -9,19 +9,19 @@ module Sequel
 
     class AlterTableGenerator
 
-    def TextField(field, opts = {})
-      if $db_type == :derby
-        add_column field, :clob, opts
-      else
-        add_column field, :text, opts
+      def TextField(field, opts = {})
+        if $db_type == :derby
+          add_column field, :clob, opts
+        else
+          add_column field, :text, opts
+        end
       end
-    end
 
 
-    def DynamicEnum(field, opts = {})
-      add_column field, :integer, opts
-      add_foreign_key([field], :enumeration_value, :key => :id)
-    end
+      def DynamicEnum(field, opts = {})
+        add_column field, :integer, opts
+        add_foreign_key([field], :enumeration_value, :key => :id)
+      end
 
     end
 
