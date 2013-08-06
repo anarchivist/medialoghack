@@ -25,7 +25,7 @@ module Sequel
 
     end
 
-    end
+  end
 
 end
 
