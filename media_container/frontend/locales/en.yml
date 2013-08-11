@@ -1,0 +1,27 @@
+en:
+  container:
+    media_format: Media Format
+    media_density: Media Density (floppies)
+    media_manufacturer: Media Manufacturer
+    media_label_transcription: Label Transcription
+    media_serial_number: Serial Number (hard drives)
+
+  enumerations:
+    container_media_format:
+      3_5_inch_floppy: '3.5" floppy'
+      5_25_inch_floppy: '5.25" floppy'
+      8_inch_floppy: '8" inch floppy'
+      cd: Compact Disc
+      cd-r: CD-R
+      cd-rw: CD-RW
+      dvd: DVD
+      flash: Flash memory
+      hard_disk: Hard disk
+      jaz_cartridge: Jaz cartridge
+      other: Other format
+      zip_disk: Zip disk
+    container_media_density:
+      single: Single Density
+      double: Double Density
+      quad: Quad Density
+      high: High Density
