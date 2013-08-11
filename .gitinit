@@ -1,0 +1,7 @@
+sleuthkitJNI/*.001
+sleuthkitJNI/.idea/*
+sleuthkitJNI/*.iml
+sleuthkitJNI/*.log
+sleuthkitJNI/profiles/*
+sleuthkitJNI/target/*
+sleuthkitJNI/tmp/*
