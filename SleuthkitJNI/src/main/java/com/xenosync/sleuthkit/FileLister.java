@@ -45,18 +45,22 @@ public class FileLister {
 
             java.io.File tmpFile = new java.io.File("/tmp", file.getName());
             if(tmpFile.exists() && DigestUtils.md5Hex(new FileInputStream(tmpFile)).equals(file.getMd5Hash())){
-                System.out.println("  " + file.getName());
-                System.out.println("\tTIKA: " + tika.detect(new BufferedInputStream(new ReadContentInputStream(file))));
-                //System.out.print("DROID: ");
-                //NaniteWrapper nanite = new NaniteWrapper(tmpFile, file.getMd5Hash());
-                String detect = fido(tmpFile);
-                if(detect.substring(0,2).equals("OK")){
-                    String[] mime = detect.split(",");
-                    System.out.println("\tFIDO: " + mime[7].substring(1, mime[7].length() - 1) + " " + mime[8]);
+                System.out.println("  " + file.getName() + "  " +file.getSize());
+                System.out.println("    TIKA: " + tika.detect(new BufferedInputStream(new ReadContentInputStream(file))));
+                System.out.println("    FIDO: " + fido(tmpFile));
+
+                try{
+                NaniteWrapper nanite = new NaniteWrapper(tmpFile, file.getMd5Hash());
+                } catch (Exception e){
+                    System.err.println("    NANITE FAILED: " + e);
                 }
+
+
+
+
             } else {
 
-                System.err.println("checksum in image does not match");
+                System.err.println("checksum in image does not match or tmp file does not exist");
             }
 
             tmpFile.delete();
