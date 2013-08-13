@@ -23,7 +23,7 @@ public class Nanite {
 	public Nanite(String fname) throws IOException, SignatureFileException, SignatureParseException, ConfigurationException {
 		nan = new DroidBinarySignatureDetector();
         File file = new File(fname);
-        System.out.println("    NANITE: " + nan.getMimeType(file));
+        System.out.println("\t\tNANITE: " + nan.getMimeType(file));
 
 	}
 
