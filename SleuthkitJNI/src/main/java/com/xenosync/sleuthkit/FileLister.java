@@ -45,16 +45,21 @@ public class FileLister {
 
             java.io.File tmpFile = new java.io.File("/tmp", file.getName());
             if(tmpFile.exists() && DigestUtils.md5Hex(new FileInputStream(tmpFile)).equals(file.getMd5Hash())){
+                String path = file.getUniquePath();
+                /*
                 System.out.println("\t" + file.getName());
  				System.out.println("\t\tbytes: " + file.getSize());
 				System.out.println("\t\tmd5: " + file.getMd5Hash());
                 System.out.println("\t\tsha" + new Hash().calculateSha1(file));
                 System.out.println("\t\tTIKA: " + tika.detect(new BufferedInputStream(new ReadContentInputStream(file))));
                 System.out.println("\t\tFIDO: " + fido(tmpFile));
-
+                 */
                 try{
-                NaniteWrapper nanite = new NaniteWrapper(tmpFile, file.getMd5Hash());
+                    //NaniteWrapper nanite = new NaniteWrapper(tmpFile, file.getMd5Hash());
+                    NaniteWrapper nanite = new NaniteWrapper(new BufferedInputStream(new ReadContentInputStream(file)), path);
+
                 } catch (Exception e){
+
                     System.err.println("\t\tNANITE FAILED: " + e);
                 }
 

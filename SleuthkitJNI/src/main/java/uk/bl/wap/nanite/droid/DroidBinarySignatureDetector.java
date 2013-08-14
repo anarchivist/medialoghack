@@ -459,6 +459,12 @@ public class DroidBinarySignatureDetector extends Object implements Detector {
 		return this.detect(new FileInputStream(file), metadata).toString();
 	}
 
+    public String getMimeType(InputStream is, String localPath) throws FileNotFoundException, IOException, ConfigurationException, SignatureFileException {
+        Metadata metadata = new Metadata();
+        metadata.set(Metadata.RESOURCE_NAME_KEY, localPath);
+        return this.detect(is, metadata).toString();
+    }
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#finalize()
 	 */
